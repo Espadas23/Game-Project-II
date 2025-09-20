@@ -464,6 +464,11 @@ MonoBehaviour:
   flashlight: {fileID: 1913015730}
   isOn: 0
   toggleKey: 20
+  rotationSpeed: 10
+  intensitySpeed: 5
+  maxIntensity: 1.5
+  minIntensity: 0
+  spriteLooksUp: 1
 --- !u!212 &1913015728
 SpriteRenderer:
   m_ObjectHideFlags: 0
