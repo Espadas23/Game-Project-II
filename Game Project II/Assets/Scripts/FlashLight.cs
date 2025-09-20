@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.InputSystem; // новый Input System
+using UnityEngine.InputSystem;
 
 public class Flashlight : MonoBehaviour
 {
@@ -8,33 +8,37 @@ public class Flashlight : MonoBehaviour
     public Light2D flashlight;
 
     [Header("Settings")]
-    public bool isOn = false; // можно включать через инспектор во время игры
-    public Key toggleKey = Key.F; // кнопка включения
+    public bool isOn = false;              // Можно включать через инспектор
+    public Key toggleKey = Key.F;          // Кнопка включения
+    public float rotationSpeed = 10f;      // Скорость поворота
+    public float intensitySpeed = 5f;      // Скорость изменения яркости
+    public float maxIntensity = 1.5f;      // Максимальная яркость света
+    public float minIntensity = 0f;        // Минимальная яркость (выключено)
 
     void Update()
     {
-        // 1️⃣ Проверяем нажатие клавиши F через Input System
+        // Переключение по кнопке
         if (Keyboard.current[toggleKey].wasPressedThisFrame)
         {
             isOn = !isOn;
         }
 
-        // 2️⃣ Включаем/выключаем свет
+        // Плавное изменение интенсивности
         if (flashlight != null)
-            flashlight.enabled = isOn;
+        {
+            float targetIntensity = isOn ? maxIntensity : minIntensity;
+            flashlight.intensity = Mathf.Lerp(flashlight.intensity, targetIntensity, intensitySpeed * Time.deltaTime);
+        }
 
-        // 3️⃣ Фонарик ровно смотрит на мышку
-        Vector3 mousePos = Mouse.current.position.ReadValue(); // позиция курсора в пикселях
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos); // в мировые координаты
-        mousePos.z = 0f; // фиксируем Z, чтобы фонарик не улетал
+        // Поворот к курсору
+        Vector3 mousePos = Mouse.current.position.ReadValue();
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        mousePos.z = 0f;
 
-        // вычисляем направление
         Vector2 direction = (mousePos - transform.position).normalized;
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // угол поворота
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // поворачиваем фонарик
+        float angle = Mathf.LerpAngle(transform.eulerAngles.z, targetAngle, rotationSpeed * Time.deltaTime);
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 }
