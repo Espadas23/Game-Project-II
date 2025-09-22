@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class FlashlightFollow : MonoBehaviour
 {
     public Transform player;  // перетащи персонажа сюда
@@ -24,3 +23,9 @@ public class FlashlightFollow : MonoBehaviour
             transform.localScale = new Vector3(-Mathf.Abs(initialScale.x), initialScale.y, initialScale.z);
     }
 }
+
+
+
+
+
+
