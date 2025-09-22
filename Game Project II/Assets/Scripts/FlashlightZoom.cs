@@ -4,33 +4,31 @@ using Unity.Cinemachine;
 
 public class FlashlightZoom : MonoBehaviour
 {
-    [Header("References")]
-    public FlashlightController flashlight;   // скрипт фонарика
-    public CinemachineCamera cineCam;         // объект CinemachineCamera
-    public Transform player;                  // игрок
+    public FlashlightController flashlight;
+    public CinemachineCamera cineCam;
+    public Transform player;
 
     [Header("Zoom Settings")]
-    public float normalSize = 5f;             // размер камеры без зума
-    public float zoomedSize = 3f;             // размер камеры при зуме
-    public float zoomSpeed = 8f;              // скорость перехода
-    public float maxOffset = 2f;              // радиус смещения к курсору
+    public float normalSize = 5f;         // обычный зум
+    public float zoomedSize = 3f;         // минимальный зум при зуме
+    public float maxZoomInExtra = 1f;     // насколько можно приблизить сильнее
+    public float zoomSpeed = 8f;          
+    public float maxOffset = 2f;          
+    public float zoomWheelSpeed = 0.5f;   
 
     private float currentSize;
+    private float wheelOffset = 0f; // накопленный эффект колесика
 
     void Start()
     {
         if (cineCam == null || player == null || flashlight == null)
         {
-            Debug.LogError("⚠️ Не назначены cineCam, player или flashlight!");
+            Debug.LogError("Не назначены cineCam, player или flashlight!");
             return;
         }
 
-        // Проверяем, чтобы Follow был пустым
         if (cineCam.Follow != null)
-        {
-            Debug.LogWarning("Follow у CinemachineCamera должен быть None для ручного управления.");
             cineCam.Follow = null;
-        }
 
         currentSize = cineCam.Lens.OrthographicSize;
     }
@@ -43,7 +41,15 @@ public class FlashlightZoom : MonoBehaviour
 
         if (flashlight.isOn && Mouse.current != null && Mouse.current.rightButton.isPressed)
         {
-            targetSize = zoomedSize;
+            // Реакция на колесико
+            float scroll = Mouse.current.scroll.ReadValue().y;
+            wheelOffset -= scroll * zoomWheelSpeed;
+
+            // Ограничиваем диапазон wheelOffset
+            wheelOffset = Mathf.Clamp(wheelOffset, -maxZoomInExtra, normalSize - zoomedSize);
+
+            // Целевой зум = минимальный базовый зум + wheelOffset
+            targetSize = zoomedSize + wheelOffset;
 
             // Позиция мыши в мире
             Vector2 mouseScreen = Mouse.current.position.ReadValue();
@@ -51,23 +57,22 @@ public class FlashlightZoom : MonoBehaviour
                 new Vector3(mouseScreen.x, mouseScreen.y, -Camera.main.transform.position.z)
             );
 
-            // Вектор от игрока к мыши
             Vector2 dir = mouseWorld - (Vector3)player.position;
-
-            // Ограничиваем радиус
             if (dir.magnitude > maxOffset)
                 dir = dir.normalized * maxOffset;
 
-            // Смещение камеры к курсору
             targetPosition = player.position + new Vector3(dir.x, dir.y, 0f);
             targetPosition.z = cineCam.transform.position.z;
         }
+        else
+        {
+            // ПКМ отпущена → возвращаем wheelOffset в 0
+            wheelOffset = 0f;
+        }
 
-        // Плавный переход размера камеры
+        // Плавный переход размера и позиции
         currentSize = Mathf.Lerp(currentSize, targetSize, Time.deltaTime * zoomSpeed);
         cineCam.Lens.OrthographicSize = currentSize;
-
-        // Плавный переход позиции камеры
         cineCam.transform.position = Vector3.Lerp(cineCam.transform.position, targetPosition, Time.deltaTime * zoomSpeed);
     }
 }
