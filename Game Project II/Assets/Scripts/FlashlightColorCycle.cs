@@ -4,36 +4,35 @@ using UnityEngine.Rendering.Universal;
 
 public class FlashlightColorCycle : MonoBehaviour
 {
-    public Light2D flashlightLight;     // 2D свет фонарика
-    public Key toggleKey = Key.C;       // клавиша для смены цвета
+    [Header("References")]
+    public Light2D flashlightLight;   // фонарик
+    public Key colorCycleKey = Key.C; // кнопка смены цвета
 
     private Color[] colors = new Color[]
     {
-        Color.white,   // белый
-        Color.red,     // красный
-        Color.blue,    // синий
-        Color.green    // зеленый
+        Color.white,
+        Color.red,
+        Color.blue,
+        Color.green
     };
 
-    private int currentMode = 0;        // 0 = белый, 1 = красный, 2 = синий, 3 = зеленый, 4 = выключен
+    private int currentMode = 0;
+
+    void Start()
+    {
+        if (flashlightLight != null)
+            flashlightLight.color = colors[currentMode];
+    }
 
     void Update()
     {
-        if (Keyboard.current != null && Keyboard.current[toggleKey].wasPressedThisFrame)
-        {
-            currentMode = (currentMode + 1) % 5; // 0-4 циклически
+        if (Keyboard.current == null || flashlightLight == null) return;
 
-            if (currentMode == 4)
-            {
-                // выключаем фонарик
-                flashlightLight.enabled = false;
-            }
-            else
-            {
-                // включаем фонарик и устанавливаем цвет
-                flashlightLight.enabled = true;
-                flashlightLight.color = colors[currentMode];
-            }
+        // Смена цвета по кругу при нажатии C
+        if (Keyboard.current[colorCycleKey].wasPressedThisFrame)
+        {
+            currentMode = (currentMode + 1) % colors.Length;
+            flashlightLight.color = colors[currentMode];
         }
     }
 }
