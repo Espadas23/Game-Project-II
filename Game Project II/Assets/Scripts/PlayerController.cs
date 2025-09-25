@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
 
     [Header("Jump Helpers")]
-    public float coyoteTime = 0.12f;       // время после отрыва от земли, когда ещё можно прыгнуть
+    public float coyoteTime = 0.12f;       // время после отрыва от земли
     public float jumpBufferTime = 0.12f;   // буфер нажатия перед касанием земли
 
     [Header("Animation")]
@@ -68,6 +68,11 @@ public class PlayerController : MonoBehaviour
         if (jumpBufferTimer > 0f && coyoteTimer > 0f)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+
+            // 🎵 звук прыжка
+            if (SoundManager.Instance != null)
+                SoundManager.Instance.PlayJump();
+
             jumpBufferTimer = 0f;
             coyoteTimer = 0f;
         }
@@ -77,10 +82,21 @@ public class PlayerController : MonoBehaviour
         else if (moveInput < -0.01f) transform.localScale = new Vector3(-Mathf.Abs(initialScale.x), initialScale.y, initialScale.z);
 
         // --- Анимации
-        // Blend Tree должен использовать параметр "Speed"
         animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x)); 
         animator.SetBool("isGrounded", isGrounded);
         animator.SetFloat("yVelocity", rb.linearVelocity.y);
+
+        // 🎵 шаги: играть только когда идем по земле
+        if (Mathf.Abs(moveInput) > 0.01f && isGrounded)
+        {
+            if (SoundManager.Instance != null)
+                SoundManager.Instance.PlayFootsteps();
+        }
+        else
+        {
+            if (SoundManager.Instance != null)
+                SoundManager.Instance.StopFootsteps();
+        }
     }
 
     void FixedUpdate()
