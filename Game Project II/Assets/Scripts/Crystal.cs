@@ -16,6 +16,10 @@ public class Crystal : MonoBehaviour
                 hp.OnCrystalCollected();
             }
 
+            // 🎵 звук сбора кристалла
+            if (SoundManager.Instance != null)
+                SoundManager.Instance.PlayCrystalPickup();
+
             // Удаляем кристалл из сцены
             Destroy(gameObject);
         }

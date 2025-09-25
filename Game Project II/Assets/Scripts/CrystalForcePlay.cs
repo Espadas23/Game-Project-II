@@ -68,7 +68,7 @@ public class CrystalForcePlay : MonoBehaviour
     void Collect()
     {
         // Здесь можно добавить эффект сбора: звук, частицы и т.д.
-        Debug.Log("Кристалл собран!");
+        Debug.Log("Crystall Collected");
         Destroy(gameObject);
     }
 }

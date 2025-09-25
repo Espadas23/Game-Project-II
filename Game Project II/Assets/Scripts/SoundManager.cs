@@ -5,13 +5,17 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance;
 
     [Header("Audio Sources")]
-    public AudioSource sfxSource;      // для эффектов (шаги, прыжки и т.д.)
+    public AudioSource sfxSource;      // для эффектов (шаги, прыжки, сбор кристаллов)
     public AudioSource ambientSource;  // для амбиента (фон)
 
     [Header("Clips")]
     public AudioClip jumpClip;
     public AudioClip[] footstepClips;
     public AudioClip ambientClip;
+
+    [Space(10)]
+    public AudioClip crystalPickupClip;
+    public AudioClip flashlightToggleClip;
 
     private void Awake()
     {
@@ -23,7 +27,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        // включаем амбиент при старте
+        // Включаем амбиент при старте
         if (ambientSource != null && ambientClip != null)
         {
             ambientSource.clip = ambientClip;
@@ -58,5 +62,19 @@ public class SoundManager : MonoBehaviour
             sfxSource.loop = false;
             sfxSource.Stop();
         }
+    }
+
+    // --- Сбор кристалла
+    public void PlayCrystalPickup()
+    {
+        if (sfxSource != null && crystalPickupClip != null)
+            sfxSource.PlayOneShot(crystalPickupClip);
+    }
+
+    // --- Включение/выключение фонарика
+    public void PlayFlashlightToggle()
+    {
+        if (sfxSource != null && flashlightToggleClip != null)
+            sfxSource.PlayOneShot(flashlightToggleClip);
     }
 }

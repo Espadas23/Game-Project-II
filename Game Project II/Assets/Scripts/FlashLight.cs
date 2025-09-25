@@ -20,9 +20,15 @@ public class Flashlight : MonoBehaviour
 
     void Update()
     {
-        // Вкл/выкл света
+        // --- Вкл/выкл света
         if (Keyboard.current[toggleKey].wasPressedThisFrame)
+        {
             isOn = !isOn;
+
+            // 🎵 звук переключения фонарика
+            if (SoundManager.Instance != null)
+                SoundManager.Instance.PlayFlashlightToggle();
+        }
 
         if (flashlight != null)
         {
@@ -30,7 +36,7 @@ public class Flashlight : MonoBehaviour
             flashlight.intensity = Mathf.Lerp(flashlight.intensity, targetIntensity, intensitySpeed * Time.deltaTime);
         }
 
-        // Поворот к курсору
+        // --- Поворот к курсору
         Vector3 mousePos = Mouse.current.position.ReadValue();
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
         mousePos.z = 0f;

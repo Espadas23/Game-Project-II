@@ -57,12 +57,12 @@ public class FlashlightHP : MonoBehaviour
         isShrinking = true;
         isDeadCountdown = false;
 
-        Debug.Log("Кристалл собран — радиус фонарика восстановлен!");
+        Debug.Log("CrystalCollected");
     }
 
     private void Die()
     {
-        Debug.Log("Игрок умер! Игра окончена.");
+        Debug.Log("GameOver");
         Time.timeScale = 0f;
         Destroy(gameObject);
     }
