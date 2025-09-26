@@ -17,26 +17,30 @@ public class FlashlightHP : MonoBehaviour
 
     [Header("Overlay для затемнения")]
     public Image overlayImage;
-    public float overlayFadeSpeed = 1f;
+    public float overlayFadeSpeed = 1f; // скорость плавного затемнения
 
     [Header("Таймер смерти")]
     public float deathDelay = 15f;
 
     [HideInInspector] public bool hasTurnedOnOnce = false;
 
+    // Таймеры
     private float timerFlashlight = 0f;
     private float timerNoFlashlight = 0f;
     private bool isShrinking = true;
+    private bool isDeadCountdown = false;
     private bool noFlashlightCountdown = false;
-    private float overlayTargetAlpha = 0f;
 
+    // UI таймеры
     public TextMeshProUGUI flashlightTimerText;
     public TextMeshProUGUI noFlashlightTimerText;
 
     void Start()
     {
-        if (flashlight == null) flashlight = GetComponent<Light2D>();
-        if (flashlightScript == null) flashlightScript = GetComponent<Flashlight>();
+        if (flashlight == null)
+            flashlight = GetComponent<Light2D>();
+        if (flashlightScript == null)
+            flashlightScript = GetComponent<Flashlight>();
 
         flashlight.pointLightOuterRadius = maxRadius;
 
@@ -46,49 +50,56 @@ public class FlashlightHP : MonoBehaviour
 
     void Update()
     {
-        float remainingFlashlightTime = 0f;
-        float remainingNoFlashlightTime = 0f;
+        // --- Проверка состояния фонарика ---
+        if (flashlightScript != null)
+        {
+            if (flashlightScript.isOn)
+            {
+                hasTurnedOnOnce = true;
+
+                // Фонарик включен → таймер без света сбрасывается
+                noFlashlightCountdown = false;
+                timerNoFlashlight = 0f;
+            }
+            else
+            {
+                // Фонарик выключен вручную или автоматически, запускаем таймер без света
+                if (hasTurnedOnOnce && !noFlashlightCountdown)
+                {
+                    noFlashlightCountdown = true;
+                    timerNoFlashlight = 0f;
+                }
+            }
+        }
 
         // --- Таймер фонарика ---
+        float remainingFlashlightTime = 0f;
         if (flashlightScript != null && flashlightScript.isOn && isShrinking)
         {
-            hasTurnedOnOnce = true;
             timerFlashlight += Time.deltaTime;
-            flashlight.pointLightOuterRadius = Mathf.Lerp(maxRadius, minRadius, timerFlashlight / shrinkDuration);
+            float t = Mathf.Clamp01(timerFlashlight / shrinkDuration);
+            flashlight.pointLightOuterRadius = Mathf.Lerp(maxRadius, minRadius, t);
+
             remainingFlashlightTime = Mathf.Max(0f, shrinkDuration - timerFlashlight);
 
             if (timerFlashlight >= shrinkDuration)
             {
-                // Радиус достиг 0 → фонарик выключается автоматически
-                flashlight.pointLightOuterRadius = minRadius;
-                flashlightScript.isOn = false;
                 isShrinking = false;
+                isDeadCountdown = true;
+                timerFlashlight = 0f;
 
-                // Таймер без фонаря запускается
+                // Таймер без света запускается автоматически
                 noFlashlightCountdown = true;
                 timerNoFlashlight = 0f;
-                overlayTargetAlpha = 0.6f;
             }
-
-            // Пока фонарик включен — таймер без фонаря сбрасывается
-            noFlashlightCountdown = false;
-            timerNoFlashlight = 0f;
-            overlayTargetAlpha = 0f;
-        }
-
-        // --- Проверка для таймера без фонаря ---
-        if ((flashlightScript != null && !flashlightScript.isOn) || (!isShrinking && hasTurnedOnOnce))
-        {
-            if (hasTurnedOnOnce)
-                noFlashlightCountdown = true;
         }
 
         // --- Таймер без фонаря ---
+        float remainingNoFlashlightTime = 0f;
         if (noFlashlightCountdown)
         {
             timerNoFlashlight += Time.deltaTime;
             remainingNoFlashlightTime = Mathf.Max(0f, noFlashlightDuration - timerNoFlashlight);
-            overlayTargetAlpha = 0.6f;
 
             if (timerNoFlashlight >= noFlashlightDuration)
             {
@@ -96,34 +107,40 @@ public class FlashlightHP : MonoBehaviour
             }
         }
 
-        // --- UI ---
+        // --- Обновление UI ---
         if (flashlightTimerText != null)
             flashlightTimerText.text = "Flashlight: " + remainingFlashlightTime.ToString("F1") + "s";
 
         if (noFlashlightTimerText != null)
             noFlashlightTimerText.text = "No Light: " + remainingNoFlashlightTime.ToString("F1") + "s";
 
-        // --- Overlay ---
+        // --- Плавное затемнение экрана ---
         if (overlayImage != null)
         {
-            Color c = overlayImage.color;
-            c.a = Mathf.MoveTowards(c.a, overlayTargetAlpha, overlayFadeSpeed * Time.deltaTime);
-            overlayImage.color = c;
+            float targetAlpha = 0f;
+            if (noFlashlightCountdown)
+            {
+                // Чем меньше времени осталось без света, тем темнее
+                float t = Mathf.Clamp01(timerNoFlashlight / noFlashlightDuration);
+                targetAlpha = Mathf.Lerp(0f, 0.8f, t); // 0.8 – максимальная темнота
+            }
+            overlayImage.color = new Color(0f, 0f, 0f, Mathf.MoveTowards(overlayImage.color.a, targetAlpha, overlayFadeSpeed * Time.deltaTime));
         }
     }
 
     public void OnCrystalCollected()
     {
-        // Собрали батарейку — фонарик снова работает
         flashlight.pointLightOuterRadius = maxRadius;
         timerFlashlight = 0f;
         isShrinking = true;
+        isDeadCountdown = false;
 
         noFlashlightCountdown = false;
         timerNoFlashlight = 0f;
-        overlayTargetAlpha = 0f;
 
-        flashlightScript.isOn = true;
+        if (overlayImage != null)
+            overlayImage.color = new Color(0f, 0f, 0f, 0f);
+
         Debug.Log("CrystalCollected");
     }
 
