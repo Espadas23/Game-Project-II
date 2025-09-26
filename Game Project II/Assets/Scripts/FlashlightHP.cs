@@ -331,8 +331,13 @@ public class FlashlightHP : MonoBehaviour
     // --- Кнопка Restart ---
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.Log("Restart pressed, loading scene GameScene");
         Time.timeScale = 1f;
+        SceneManager.LoadScene("Scenes/ProjectII"); // укажи точное имя игровой сцены
+        //int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        //SceneManager.LoadScene(0);
+        //Time.timeScale = 1f;
     }
 
     // --- Кнопка Exit ---
