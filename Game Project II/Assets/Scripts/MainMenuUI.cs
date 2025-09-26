@@ -1,45 +1,53 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem; // для новой Input System
 
-public class MainMenuUI : MonoBehaviour
+public class UIMenu : MonoBehaviour
 {
     [Header("Panels")]
-    public GameObject mainMenuPanel;   // Главное меню с кнопками Start/Settings
-    public GameObject settingsPanel;   // Панель настроек с ползунками и Back
+    public GameObject mainMenuPanel;    // Главное меню с кнопками Start/Settings
+    public GameObject settingsPanel;    // Настройки (ползунки + Back)
+    public GameObject pausePanel;       // Пауза (Resume + Settings)
 
     [Header("Settings UI")]
     public Slider sfxSlider;
     public Slider ambientSlider;
 
+    private bool isPaused = false;
+
     private void Start()
     {
-        // Загружаем сохраненные значения громкости
-        float sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
-        float ambientVolume = PlayerPrefs.GetFloat("AmbientVolume", 1f);
+        // Панели выключены на старте, кроме главного меню
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+        if (pausePanel != null) pausePanel.SetActive(false);
 
+        // Загружаем сохранённые значения громкости
         if (sfxSlider != null)
         {
+            float sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
             sfxSlider.value = sfxVolume;
             sfxSlider.onValueChanged.AddListener(SetSFXVolume);
         }
 
         if (ambientSlider != null)
         {
+            float ambientVolume = PlayerPrefs.GetFloat("AmbientVolume", 1f);
             ambientSlider.value = ambientVolume;
             ambientSlider.onValueChanged.AddListener(SetAmbientVolume);
         }
 
-        SetSFXVolume(sfxVolume);
-        SetAmbientVolume(ambientVolume);
+        Time.timeScale = 0f; // игра на паузе до нажатия Start
+    }
 
-        // Останавливаем игру до старта
-        Time.timeScale = 0f;
-
-        // Главное меню включено
-        if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
-
-        // Панель Settings скрыта
-        if (settingsPanel != null) settingsPanel.SetActive(false);
+    private void Update()
+    {
+        // Нажатие Esc для паузы
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            if (isPaused) ResumeGame();
+            else PauseGame();
+        }
     }
 
     // --- Кнопка Start ---
@@ -51,33 +59,50 @@ public class MainMenuUI : MonoBehaviour
         Time.timeScale = 1f; // запуск игры
     }
 
-    // --- Кнопка Settings ---
+    // --- Кнопка Settings в главном меню ---
     public void OpenSettings()
     {
-        if (mainMenuPanel != null)
-            mainMenuPanel.SetActive(false); // скрываем главное меню
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
+        if (pausePanel != null) pausePanel.SetActive(false);
 
-        if (settingsPanel != null)
-        {
-            settingsPanel.SetActive(true);
+        if (settingsPanel != null) settingsPanel.SetActive(true);
 
-            // Обновляем ползунки на актуальные значения
-            if (sfxSlider != null)
-                sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
-
-            if (ambientSlider != null)
-                ambientSlider.value = PlayerPrefs.GetFloat("AmbientVolume", 1f);
-        }
+        // Обновляем значения ползунков
+        if (sfxSlider != null)
+            sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        if (ambientSlider != null)
+            ambientSlider.value = PlayerPrefs.GetFloat("AmbientVolume", 1f);
     }
 
-    // --- Кнопка Back ---
+    // --- Кнопка Back в настройках ---
     public void BackToMenu()
     {
-        if (settingsPanel != null)
-            settingsPanel.SetActive(false); // скрываем панель настроек
+        if (settingsPanel != null) settingsPanel.SetActive(false);
 
-        if (mainMenuPanel != null)
-            mainMenuPanel.SetActive(true); // возвращаем главное меню
+        if (pausePanel != null && isPaused)
+            pausePanel.SetActive(true);
+        else if (mainMenuPanel != null)
+            mainMenuPanel.SetActive(true);
+    }
+
+    // --- Пауза ---
+    private void PauseGame()
+    {
+        isPaused = true;
+        Time.timeScale = 0f;
+
+        if (pausePanel != null) pausePanel.SetActive(true);
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
+    }
+
+    public void ResumeGame()
+    {
+        isPaused = false;
+        Time.timeScale = 1f;
+
+        if (pausePanel != null) pausePanel.SetActive(false);
+        if (settingsPanel != null) settingsPanel.SetActive(false);
     }
 
     // --- Установка громкости ---
