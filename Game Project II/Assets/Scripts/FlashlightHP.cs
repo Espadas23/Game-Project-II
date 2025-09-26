@@ -1,142 +1,129 @@
-/*using UnityEngine;
-using UnityEngine.Rendering.Universal;
-
-public class FlashlightHP : MonoBehaviour
-{
-    [Header("Свет")]
-    public Light2D flashlight;
-    public float maxRadius = 5f;
-    public float minRadius = 1f;
-    public float shrinkDuration = 10f;
-
-    [Header("Таймер смерти")]
-    public float deathDelay = 15f;
-
-    private float timer = 0f;
-    private bool isShrinking = true;
-    private bool isDeadCountdown = false;
-
-    void Start()
-    {
-        if (flashlight == null)
-            flashlight = GetComponent<Light2D>();
-
-        flashlight.pointLightOuterRadius = maxRadius;
-    }
-
-    void Update()
-    {
-        if (isShrinking)
-        {
-            timer += Time.deltaTime;
-            float t = Mathf.Clamp01(timer / shrinkDuration);
-            flashlight.pointLightOuterRadius = Mathf.Lerp(maxRadius, minRadius, t);
-
-            if (timer >= shrinkDuration)
-            {
-                isShrinking = false;
-                isDeadCountdown = true;
-                timer = 0f;
-            }
-        }
-        else if (isDeadCountdown)
-        {
-            timer += Time.deltaTime;
-            if (timer >= deathDelay)
-            {
-                Die();
-            }
-        }
-    }
-
-    // Метод, который вызывается **кристаллом** при сборе
-    public void OnCrystalCollected()
-    {
-        flashlight.pointLightOuterRadius = maxRadius; // полностью восстанавливаем радиус
-        timer = 0f;
-        isShrinking = true;
-        isDeadCountdown = false;
-
-        Debug.Log("CrystalCollected");
-    }
-
-    private void Die()
-    {
-        Debug.Log("GameOver");
-        Time.timeScale = 0f;
-        Destroy(gameObject);
-    }
-}*/
-
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
+using TMPro;
 
 public class FlashlightHP : MonoBehaviour
 {
     [Header("Свет")]
     public Light2D flashlight;
-    public Flashlight flashlightScript; // ссылка на скрипт фонарика
+    public Flashlight flashlightScript;
     public float maxRadius = 5f;
-    public float minRadius = 1f;
+    public float minRadius = 0f;
     public float shrinkDuration = 10f;
+
+    [Header("Таймер смерти без фонаря")]
+    public float noFlashlightDuration = 15f;
+
+    [Header("Overlay для затемнения")]
+    public Image overlayImage;
+    public float overlayFadeSpeed = 1f;
 
     [Header("Таймер смерти")]
     public float deathDelay = 15f;
 
-    private float timer = 0f;
-    private bool isShrinking = true;
-    private bool isDeadCountdown = false;
+    [HideInInspector] public bool hasTurnedOnOnce = false;
 
-    [HideInInspector] public bool hasTurnedOnOnce = false; // проверка, включал ли игрок фонарик хотя бы раз
+    private float timerFlashlight = 0f;
+    private float timerNoFlashlight = 0f;
+    private bool isShrinking = true;
+    private bool noFlashlightCountdown = false;
+    private float overlayTargetAlpha = 0f;
+
+    public TextMeshProUGUI flashlightTimerText;
+    public TextMeshProUGUI noFlashlightTimerText;
 
     void Start()
     {
-        if (flashlight == null)
-            flashlight = GetComponent<Light2D>();
-
-        if (flashlightScript == null)
-            flashlightScript = GetComponent<Flashlight>();
+        if (flashlight == null) flashlight = GetComponent<Light2D>();
+        if (flashlightScript == null) flashlightScript = GetComponent<Flashlight>();
 
         flashlight.pointLightOuterRadius = maxRadius;
+
+        if (overlayImage != null)
+            overlayImage.color = new Color(0f, 0f, 0f, 0f);
     }
 
     void Update()
     {
-        if (flashlightScript != null && flashlightScript.isOn)
-            hasTurnedOnOnce = true; // игрок включил фонарик хотя бы раз
+        float remainingFlashlightTime = 0f;
+        float remainingNoFlashlightTime = 0f;
 
-        // --- Таймер сужения идёт только если фонарик включен
+        // --- Таймер фонарика ---
         if (flashlightScript != null && flashlightScript.isOn && isShrinking)
         {
-            timer += Time.deltaTime;
-            float t = Mathf.Clamp01(timer / shrinkDuration);
-            flashlight.pointLightOuterRadius = Mathf.Lerp(maxRadius, minRadius, t);
+            hasTurnedOnOnce = true;
+            timerFlashlight += Time.deltaTime;
+            flashlight.pointLightOuterRadius = Mathf.Lerp(maxRadius, minRadius, timerFlashlight / shrinkDuration);
+            remainingFlashlightTime = Mathf.Max(0f, shrinkDuration - timerFlashlight);
 
-            if (timer >= shrinkDuration)
+            if (timerFlashlight >= shrinkDuration)
             {
+                // Радиус достиг 0 → фонарик выключается автоматически
+                flashlight.pointLightOuterRadius = minRadius;
+                flashlightScript.isOn = false;
                 isShrinking = false;
-                isDeadCountdown = true;
-                timer = 0f;
+
+                // Таймер без фонаря запускается
+                noFlashlightCountdown = true;
+                timerNoFlashlight = 0f;
+                overlayTargetAlpha = 0.6f;
             }
+
+            // Пока фонарик включен — таймер без фонаря сбрасывается
+            noFlashlightCountdown = false;
+            timerNoFlashlight = 0f;
+            overlayTargetAlpha = 0f;
         }
-        else if (isDeadCountdown)
+
+        // --- Проверка для таймера без фонаря ---
+        if ((flashlightScript != null && !flashlightScript.isOn) || (!isShrinking && hasTurnedOnOnce))
         {
-            timer += Time.deltaTime;
-            if (timer >= deathDelay)
+            if (hasTurnedOnOnce)
+                noFlashlightCountdown = true;
+        }
+
+        // --- Таймер без фонаря ---
+        if (noFlashlightCountdown)
+        {
+            timerNoFlashlight += Time.deltaTime;
+            remainingNoFlashlightTime = Mathf.Max(0f, noFlashlightDuration - timerNoFlashlight);
+            overlayTargetAlpha = 0.6f;
+
+            if (timerNoFlashlight >= noFlashlightDuration)
             {
                 Die();
             }
         }
+
+        // --- UI ---
+        if (flashlightTimerText != null)
+            flashlightTimerText.text = "Flashlight: " + remainingFlashlightTime.ToString("F1") + "s";
+
+        if (noFlashlightTimerText != null)
+            noFlashlightTimerText.text = "No Light: " + remainingNoFlashlightTime.ToString("F1") + "s";
+
+        // --- Overlay ---
+        if (overlayImage != null)
+        {
+            Color c = overlayImage.color;
+            c.a = Mathf.MoveTowards(c.a, overlayTargetAlpha, overlayFadeSpeed * Time.deltaTime);
+            overlayImage.color = c;
+        }
     }
 
-    // Метод, который вызывается кристаллом при сборе
     public void OnCrystalCollected()
     {
-        flashlight.pointLightOuterRadius = maxRadius; // полностью восстанавливаем радиус
-        timer = 0f;
+        // Собрали батарейку — фонарик снова работает
+        flashlight.pointLightOuterRadius = maxRadius;
+        timerFlashlight = 0f;
         isShrinking = true;
-        isDeadCountdown = false;
 
+        noFlashlightCountdown = false;
+        timerNoFlashlight = 0f;
+        overlayTargetAlpha = 0f;
+
+        flashlightScript.isOn = true;
         Debug.Log("CrystalCollected");
     }
 
