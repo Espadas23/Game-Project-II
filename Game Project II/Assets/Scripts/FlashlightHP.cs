@@ -1,14 +1,14 @@
-
 /*using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class FlashlightHP : MonoBehaviour
 {
     [Header("Свет")]
-    public Light2D flashlight;
-    public Flashlight flashlightScript;
+    public Light2D flashlight;                // сам компонент света
+    public Flashlight flashlightScript;       // скрипт управления фонариком
     public float maxRadius = 5f;
     public float minRadius = 0f;
     public float shrinkDuration = 10f;
@@ -20,6 +20,13 @@ public class FlashlightHP : MonoBehaviour
     public Image overlayImage;
     public float overlayFadeSpeed = 1f;
 
+    [Header("UI таймеры")]
+    public TextMeshProUGUI flashlightTimerText;
+    public TextMeshProUGUI noFlashlightTimerText;
+
+    [Header("GameOver UI")]
+    public GameObject gameOverPanel;
+
     [HideInInspector] public bool hasTurnedOnOnce = false;
 
     // Таймеры
@@ -27,11 +34,7 @@ public class FlashlightHP : MonoBehaviour
     private float timerNoFlashlight = 0f;
     private bool isShrinking = true;
     private bool noFlashlightCountdown = false;
-    private bool canTurnOn = true; // можно ли включить фонарь
-
-    // UI таймеры
-    public TextMeshProUGUI flashlightTimerText;
-    public TextMeshProUGUI noFlashlightTimerText;
+    private bool isGameOver = false;
 
     void Start()
     {
@@ -44,24 +47,37 @@ public class FlashlightHP : MonoBehaviour
 
         if (overlayImage != null)
             overlayImage.color = new Color(0f, 0f, 0f, 0f);
+
+        if (gameOverPanel != null)
+        {
+            CanvasGroup cg = gameOverPanel.GetComponent<CanvasGroup>();
+            if (cg != null) cg.alpha = 0f;
+            gameOverPanel.SetActive(false);
+        }
+
+        if (flashlight != null)
+            flashlight.enabled = true; // включаем свет при старте
     }
 
     void Update()
     {
-        // --- Проверка состояния фонарика ---
+        if (isGameOver) return;
+
+        // Проверка состояния фонарика
         if (flashlightScript != null)
         {
-            if (flashlightScript.isOn && canTurnOn)
+            if (flashlightScript.isOn)
             {
                 hasTurnedOnOnce = true;
-
-                // Фонарик включен → таймер без света сбрасывается
                 noFlashlightCountdown = false;
                 timerNoFlashlight = 0f;
+
+                if (flashlight != null && !flashlight.enabled)
+                    flashlight.enabled = true; // гарантируем включение света
             }
             else
             {
-                // Фонарик выключен вручную или автоматически
+                // Фонарик выключен вручную или радиус 0 → запускаем таймер без фонаря
                 if (hasTurnedOnOnce && !noFlashlightCountdown)
                 {
                     noFlashlightCountdown = true;
@@ -70,9 +86,9 @@ public class FlashlightHP : MonoBehaviour
             }
         }
 
-        // --- Таймер фонарика ---
+        // Таймер фонарика
         float remainingFlashlightTime = 0f;
-        if (flashlightScript != null && flashlightScript.isOn && isShrinking && canTurnOn)
+        if (flashlightScript != null && flashlightScript.isOn && isShrinking)
         {
             timerFlashlight += Time.deltaTime;
             float t = Mathf.Clamp01(timerFlashlight / shrinkDuration);
@@ -83,20 +99,15 @@ public class FlashlightHP : MonoBehaviour
             if (timerFlashlight >= shrinkDuration)
             {
                 isShrinking = false;
-                timerFlashlight = 0f;
-
-                // фонарь окончательно погас
-                flashlight.pointLightOuterRadius = 0f;
-                canTurnOn = false; // запрет на включение пока не подобран кристалл
-                flashlightScript.isOn = false;
-
-                // запускаем таймер смерти без фонаря
+                flashlightScript.isOn = false;          // фонарь выключается автоматически
+                if (flashlight != null)
+                    flashlight.enabled = false;         // выключаем компонент света
                 noFlashlightCountdown = true;
                 timerNoFlashlight = 0f;
             }
         }
 
-        // --- Таймер без фонаря ---
+        // Таймер без фонаря
         float remainingNoFlashlightTime = 0f;
         if (noFlashlightCountdown)
         {
@@ -105,18 +116,18 @@ public class FlashlightHP : MonoBehaviour
 
             if (timerNoFlashlight >= noFlashlightDuration)
             {
-                Die();
+                TriggerGameOver();
             }
         }
 
-        // --- Обновление UI ---
+        // Обновление UI таймеров
         if (flashlightTimerText != null)
             flashlightTimerText.text = "Flashlight: " + remainingFlashlightTime.ToString("F1") + "s";
 
         if (noFlashlightTimerText != null)
             noFlashlightTimerText.text = "No Light: " + remainingNoFlashlightTime.ToString("F1") + "s";
 
-        // --- Плавное затемнение экрана ---
+        // Плавное затемнение
         if (overlayImage != null)
         {
             float targetAlpha = 0f;
@@ -125,38 +136,63 @@ public class FlashlightHP : MonoBehaviour
                 float t = Mathf.Clamp01(timerNoFlashlight / noFlashlightDuration);
                 targetAlpha = Mathf.Lerp(0f, 0.8f, t);
             }
-            overlayImage.color = new Color(0f, 0f, 0f,
-                Mathf.MoveTowards(overlayImage.color.a, targetAlpha, overlayFadeSpeed * Time.deltaTime));
+            overlayImage.color = new Color(0f, 0f, 0f, Mathf.MoveTowards(overlayImage.color.a, targetAlpha, overlayFadeSpeed * Time.deltaTime));
         }
     }
 
     public void OnCrystalCollected()
     {
-        flashlight.pointLightOuterRadius = maxRadius;
+        // Восстановление фонаря и таймеров
+        if (flashlight != null)
+        {
+            flashlight.enabled = true;                     // включаем компонент света
+            flashlight.pointLightOuterRadius = maxRadius;  // радиус восстановлен
+        }
+
+        if (flashlightScript != null)
+            flashlightScript.isOn = true;                 // включаем фонарь логически
+
         timerFlashlight = 0f;
         isShrinking = true;
 
         noFlashlightCountdown = false;
         timerNoFlashlight = 0f;
 
-        canTurnOn = true; // снова можно включать фонарик
-
-        // Автоматически включаем свет после батарейки
-        flashlightScript.isOn = true;
-        flashlight.enabled = true;
-        flashlight.pointLightOuterRadius = maxRadius;
-
         if (overlayImage != null)
             overlayImage.color = new Color(0f, 0f, 0f, 0f);
 
-        Debug.Log("CrystalCollected - flashlight restored");
+        Debug.Log("CrystalCollected - фонарь включен, таймеры сброшены");
     }
 
-    private void Die()
+    private void TriggerGameOver()
     {
-        Debug.Log("GameOver");
-        Time.timeScale = 0f;
-        Destroy(gameObject);
+        isGameOver = true;
+
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+            CanvasGroup cg = gameOverPanel.GetComponent<CanvasGroup>();
+            if (cg != null) cg.alpha = 1f;
+        }
+
+        // Блокируем действия персонажа, но оставляем Time.timeScale = 1 для работы кнопок
+    }
+
+    // Кнопка Restart
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+    }
+
+    // Кнопка Exit
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // останавливаем Play Mode в редакторе
+#else
+        Application.Quit(); // выходит из сборки
+#endif
     }
 }*/
 
@@ -187,7 +223,7 @@ public class FlashlightHP : MonoBehaviour
     public TextMeshProUGUI noFlashlightTimerText;
 
     [Header("GameOver UI")]
-    public GameObject gameOverPanel; // перетащить сюда панель GameOver с кнопками
+    public GameObject gameOverPanel;
 
     [HideInInspector] public bool hasTurnedOnOnce = false;
 
@@ -196,9 +232,8 @@ public class FlashlightHP : MonoBehaviour
     private float timerNoFlashlight = 0f;
     private bool isShrinking = true;
     private bool noFlashlightCountdown = false;
-    private bool isGameOver = false;
 
-    private CanvasGroup gameOverCanvasGroup;
+    private bool isGameOver = false;
 
     void Start()
     {
@@ -212,18 +247,11 @@ public class FlashlightHP : MonoBehaviour
         if (overlayImage != null)
             overlayImage.color = new Color(0f, 0f, 0f, 0f);
 
-        // Настройка GameOverPanel через CanvasGroup
         if (gameOverPanel != null)
         {
-            gameOverCanvasGroup = gameOverPanel.GetComponent<CanvasGroup>();
-            if (gameOverCanvasGroup == null)
-                gameOverCanvasGroup = gameOverPanel.AddComponent<CanvasGroup>();
-
-            gameOverCanvasGroup.alpha = 0f;
-            gameOverCanvasGroup.interactable = false;
-            gameOverCanvasGroup.blocksRaycasts = false;
-
-            gameOverPanel.SetActive(true); // всегда активна, чтобы кнопки работали
+            CanvasGroup cg = gameOverPanel.GetComponent<CanvasGroup>();
+            if(cg != null) cg.alpha = 0f;
+            gameOverPanel.SetActive(false);
         }
     }
 
@@ -242,7 +270,7 @@ public class FlashlightHP : MonoBehaviour
             }
             else
             {
-                // Фонарик выключен или радиус 0 → запускаем таймер без фонаря
+                // Фонарик выключен или радиус = 0 → запускаем таймер без фонаря
                 if (hasTurnedOnOnce && !noFlashlightCountdown)
                 {
                     noFlashlightCountdown = true;
@@ -305,7 +333,20 @@ public class FlashlightHP : MonoBehaviour
 
     public void OnCrystalCollected()
     {
-        flashlight.pointLightOuterRadius = maxRadius;
+        if (flashlight != null)
+        {
+            flashlight.enabled = true;
+            flashlight.pointLightOuterRadius = maxRadius;
+        }
+
+        if (flashlightScript != null)
+            flashlightScript.isOn = true;
+
+        // Обновляем контроллер фонаря для подсветки объектов
+        FlashlightController fc = flashlight.GetComponent<FlashlightController>();
+        if (fc != null)
+            fc.isOn = true;
+
         timerFlashlight = 0f;
         isShrinking = true;
 
@@ -314,45 +355,39 @@ public class FlashlightHP : MonoBehaviour
 
         if (overlayImage != null)
             overlayImage.color = new Color(0f, 0f, 0f, 0f);
+
+        Debug.Log("CrystalCollected - фонарь включен, таймеры сброшены");
     }
 
     private void TriggerGameOver()
     {
         isGameOver = true;
 
-        if (gameOverCanvasGroup != null)
+        if (gameOverPanel != null)
         {
-            gameOverCanvasGroup.alpha = 1f;
-            gameOverCanvasGroup.interactable = true;
-            gameOverCanvasGroup.blocksRaycasts = true;
+            gameOverPanel.SetActive(true);
+            CanvasGroup cg = gameOverPanel.GetComponent<CanvasGroup>();
+            if(cg != null) cg.alpha = 1f;
         }
+
+        // Блокируем действия персонажа, но оставляем Time.timeScale = 1 для работы кнопок
     }
 
     // --- Кнопка Restart ---
     public void RestartGame()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Debug.Log("Restart pressed, loading scene GameScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Scenes/ProjectII"); // укажи точное имя игровой сцены
-        //int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        //SceneManager.LoadScene(0);
-        //Time.timeScale = 1f;
     }
 
     // --- Кнопка Exit ---
     public void ExitGame()
     {
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
-
-
-
-
-
 
