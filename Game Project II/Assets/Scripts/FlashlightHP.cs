@@ -356,7 +356,7 @@ public class FlashlightHP : MonoBehaviour
         if (overlayImage != null)
             overlayImage.color = new Color(0f, 0f, 0f, 0f);
 
-        Debug.Log("CrystalCollected - фонарь включен, таймеры сброшены");
+        Debug.Log("CrystalCollected");
     }
 
     private void TriggerGameOver()
@@ -390,6 +390,9 @@ public class FlashlightHP : MonoBehaviour
 #endif
     }
 }
+
+
+
 
 
 
