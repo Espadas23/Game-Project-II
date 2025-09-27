@@ -86,3 +86,4 @@ public class LightDistance : MonoBehaviour
         sr.color = normalColor + (highlightColor * intensityMultiplier - normalColor) * current;
     }
 }
+
