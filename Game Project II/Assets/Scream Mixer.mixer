@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-7701344627714185888
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 3998fed8e37eea247b8c1c0f391c9737
+  m_EffectName: Attenuation
+  m_MixLevel: 367e304457fd90e42b5a865c96ae16a2
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Scream Mixer
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300002}
+  m_Snapshots:
+  - {fileID: 24500006}
+  m_StartSnapshot: {fileID: 24500006}
+  m_SuspendThreshold: -80
+  m_EnableSuspend: 1
+  m_UpdateMode: 0
+  m_ExposedParameters:
+  - guid: 8a1d9217c8f21ff4ab02d9dc80e46583
+    name: MyExposedParam
+  m_AudioMixerGroupViews:
+  - guids:
+    - 1f82e771df088084bb62980993d00484
+    - 666a29daa59750d409eb3a369e62915d
+    name: View
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: 24500006}
+--- !u!243 &24300002
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 1f82e771df088084bb62980993d00484
+  m_Children:
+  - {fileID: 689656667966135004}
+  m_Volume: e9ad1d65d02bc7849be6006304297e97
+  m_Pitch: 5b285bdef36432c4d9b22b2fd71e4ec4
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 24400004}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400004
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 8fe5683afd9b7dc41a32b2f1594aa241
+  m_EffectName: Attenuation
+  m_MixLevel: 9b3ec747cec268742ab65f52db1c79c6
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &24500006
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Snapshot
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 3b2b7c15efcca4d44a56ce9aaab46dea
+  m_FloatValues: {}
+  m_TransitionOverrides: {}
+--- !u!243 &689656667966135004
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Screams Group
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 666a29daa59750d409eb3a369e62915d
+  m_Children: []
+  m_Volume: 8a1d9217c8f21ff4ab02d9dc80e46583
+  m_Pitch: 36d82b46afa974c498544acaf9c78e20
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -7701344627714185888}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
