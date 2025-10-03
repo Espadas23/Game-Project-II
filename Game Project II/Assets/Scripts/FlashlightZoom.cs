@@ -170,7 +170,7 @@ public class FlashlightZoom : MonoBehaviour
     }
 }*/
 
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.InputSystem;
 using Unity.Cinemachine;
 
@@ -264,6 +264,110 @@ public class FlashlightZoom : MonoBehaviour
         cineCam.Lens.OrthographicSize = currentSize;
         cineCam.transform.position = Vector3.Lerp(cineCam.transform.position, targetPosition, Time.deltaTime * zoomSpeed);
     }
+}*/
+
+
+
+using UnityEngine;
+using UnityEngine.InputSystem;
+using Unity.Cinemachine;
+
+public class FlashlightZoom : MonoBehaviour
+{
+    public FlashlightController flashlight;
+    public CinemachineCamera cineCam;
+    public Transform player;
+
+    [Header("Zoom Settings")]
+    public float normalSize = 5f;         
+    public float zoomedSize = 3f;         
+    public float maxZoomInExtra = 1f;     
+    public float zoomSpeed = 8f;          
+    public float maxOffset = 2f;          
+    public float zoomWheelSpeed = 0.5f;   
+
+    [Header("Camera Offset")]
+    [Tooltip("Регулируется через инспектор, поднимает/опускает камеру")]
+    public float cameraYOffset = 0f;
+
+    private float currentSize;
+    private float wheelOffset = 0f; 
+
+    [HideInInspector] public bool isZoomed = false;       
+    [HideInInspector] public bool isExtraZoomed = false;  
+
+    public float WheelOffset => wheelOffset;
+
+    void Start()
+    {
+        if (cineCam == null || player == null || flashlight == null)
+        {
+            Debug.LogError("Не назначены cineCam, player или flashlight!");
+            return;
+        }
+
+        if (cineCam.Follow != null)
+            cineCam.Follow = null;
+
+        currentSize = cineCam.Lens.OrthographicSize;
+    }
+
+    void Update()
+    {
+        float targetSize = normalSize;
+        Vector3 targetPosition = player.position;
+        targetPosition.z = cineCam.transform.position.z;
+
+        // --- Сброс флагов ---
+        isZoomed = false;
+        isExtraZoomed = false;
+
+        if (flashlight.isOn && Mouse.current != null && Mouse.current.rightButton.isPressed)
+        {
+            isZoomed = true;
+
+            float scroll = Mouse.current.scroll.ReadValue().y;
+            wheelOffset -= scroll * zoomWheelSpeed;
+            wheelOffset = Mathf.Clamp(wheelOffset, -maxZoomInExtra, normalSize - zoomedSize);
+            targetSize = zoomedSize + wheelOffset;
+
+            if (wheelOffset < -0.01f)
+                isExtraZoomed = true;
+
+            Vector2 mouseScreen = Mouse.current.position.ReadValue();
+            Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(
+                new Vector3(mouseScreen.x, mouseScreen.y, -Camera.main.transform.position.z)
+            );
+
+            Vector2 dir = mouseWorld - (Vector3)player.position;
+            if (dir.magnitude > maxOffset)
+                dir = dir.normalized * maxOffset;
+
+            targetPosition = player.position + new Vector3(dir.x, dir.y, 0f);
+            targetPosition.z = cineCam.transform.position.z;
+        }
+        else
+        {
+            wheelOffset = 0f;
+        }
+
+        // --- Применяем плавный зум и позицию камеры ---
+        currentSize = Mathf.Lerp(currentSize, targetSize, Time.deltaTime * zoomSpeed);
+        cineCam.Lens.OrthographicSize = currentSize;
+
+        // Добавляем регулировку высоты через инспектор
+        targetPosition.y += cameraYOffset;
+
+        cineCam.transform.position = Vector3.Lerp(cineCam.transform.position, targetPosition, Time.deltaTime * zoomSpeed);
+    }
 }
+
+
+
+
+
+
+
+
 
 
