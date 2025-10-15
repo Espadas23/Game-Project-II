@@ -148,3 +148,13 @@ public class MapController : MonoBehaviour
             mapMaterial.SetFloat(shaderAlphaProp, alpha);
     }
 }
+
+
+
+
+
+
+
+
+
+
