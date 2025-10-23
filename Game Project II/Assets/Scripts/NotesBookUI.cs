@@ -40,6 +40,5 @@ public class NotesBookUI : MonoBehaviour
     private void ShowNote(NoteData note)
     {
         noteContentText.text = note.noteText;
-        noteScroll.verticalNormalizedPosition = 1f;
     }
 }
