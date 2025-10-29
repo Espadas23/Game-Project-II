@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 94ba32edcbaad6343b01d9f5dd0ef4e1
+guid: c6f80df3ea2b51248b26e6cd687875d5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8371019140385695755
-    second: GroundTiles_0
+      213: 1491037887231230346
+    second: jails_0
+  - first:
+      213: 3362524603029632893
+    second: jails_1
+  - first:
+      213: 6204066512081720466
+    second: jails_2
+  - first:
+      213: -1649507371876015501
+    second: jails_3
+  - first:
+      213: 6230463273079637926
+    second: jails_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,157 +125,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_0"
+      name: jails_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 20
         y: 0
-        width: 32
-        height: 32
+        width: 28
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 16, y: -4}
-        - {x: -16, y: -4}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 9a792eaf90e3dd8468717e50e0552245
-      internalID: 445078252
+      spriteID: a81011ffe0b31b410800000000000000
+      internalID: 1491037887231230346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_1"
+      name: jails_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 48
         y: 0
-        width: 32
-        height: 32
+        width: 28
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 16, y: -4}
-        - {x: -16, y: -4}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 804eb6ebebd28594fa935675a66b9d6a
-      internalID: -51040681
+      spriteID: d77b710af461aae20800000000000000
+      internalID: 3362524603029632893
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_2"
+      name: jails_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 78
         y: 0
-        width: 32
-        height: 32
+        width: 28
+        height: 51
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 16, y: -4}
-        - {x: -16, y: -4}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 7598a846bfe605240a82210d8bfe74f0
-      internalID: -440740600
+      spriteID: 29417874f95491650800000000000000
+      internalID: 6204066512081720466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_3"
+      name: jails_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
+        x: 108
+        y: 20
+        width: 28
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 16, y: -4}
-        - {x: -16, y: -4}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: ae29867047e27f44d8c70d2f68abd868
-      internalID: 1305047537
+      spriteID: 37221f4e8c5cb19e0800000000000000
+      internalID: -1649507371876015501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_4"
+      name: jails_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 108
         y: 0
-        width: 32
-        height: 32
+        width: 28
+        height: 17
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 16, y: -4}
-        - {x: -16, y: -4}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 3be4687424548fc4eb9a2ff1bafd627c
-      internalID: -1560012792
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_5"
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 16, y: -4}
-        - {x: -16, y: -4}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: d78aa41acbb4b8442b7fecc0afabfc8d
-      internalID: -2096213875
+      spriteID: 6a78702265d077650800000000000000
+      internalID: 6230463273079637926
       vertices: []
       indices: 
       edges: []
@@ -272,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f47fdc31352588b4298fe6916532a68d
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -280,16 +246,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_0": 445078252
-      "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_1": -51040681
-      "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_2": -440740600
-      "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_3": 1305047537
-      "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_4": -1560012792
-      "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_5": -2096213875
+      jails_0: 1491037887231230346
+      jails_1: 3362524603029632893
+      jails_2: 6204066512081720466
+      jails_3: -1649507371876015501
+      jails_4: 6230463273079637926
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

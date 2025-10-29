@@ -1,10 +1,34 @@
 fileFormatVersion: 2
-guid: 94ba32edcbaad6343b01d9f5dd0ef4e1
+guid: 32486aef673d5fa4196828ed0af5cb25
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8371019140385695755
-    second: GroundTiles_0
+      213: -8568042794190644651
+    second: barrel_0
+  - first:
+      213: -1209127185579228243
+    second: barrel_1
+  - first:
+      213: -7921435704551551082
+    second: barrel_2
+  - first:
+      213: 8562160663626781718
+    second: barrel_3
+  - first:
+      213: -3316199573581197735
+    second: barrel_4
+  - first:
+      213: -2153456015311763747
+    second: barrel_5
+  - first:
+      213: 7667723535512224273
+    second: barrel_6
+  - first:
+      213: -4303049689130013014
+    second: barrel_7
+  - first:
+      213: 7311890376923463442
+    second: barrel_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,157 +137,199 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_0"
+      name: barrel_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 16, y: -4}
-        - {x: -16, y: -4}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 9a792eaf90e3dd8468717e50e0552245
-      internalID: 445078252
+      spriteID: 55adbef5972381980800000000000000
+      internalID: -8568042794190644651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_1"
+      name: barrel_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 28
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 46
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 16, y: -4}
-        - {x: -16, y: -4}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 804eb6ebebd28594fa935675a66b9d6a
-      internalID: -51040681
+      spriteID: da3484f1b31583fe0800000000000000
+      internalID: -1209127185579228243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_2"
+      name: barrel_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 54
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 42
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 16, y: -4}
-        - {x: -16, y: -4}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 7598a846bfe605240a82210d8bfe74f0
-      internalID: -440740600
+      spriteID: 69fcb1f3238611290800000000000000
+      internalID: -7921435704551551082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_3"
+      name: barrel_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 80
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 43
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 16, y: -4}
-        - {x: -16, y: -4}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: ae29867047e27f44d8c70d2f68abd868
-      internalID: 1305047537
+      spriteID: 6141c4162c7e2d670800000000000000
+      internalID: 8562160663626781718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_4"
+      name: barrel_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 106
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 17
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 16, y: -4}
-        - {x: -16, y: -4}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 3be4687424548fc4eb9a2ff1bafd627c
-      internalID: -1560012792
+      spriteID: 95e046cce0e7af1d0800000000000000
+      internalID: -3316199573581197735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_5"
+      name: barrel_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 132
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 16, y: -4}
-        - {x: -16, y: -4}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: d78aa41acbb4b8442b7fecc0afabfc8d
-      internalID: -2096213875
+      spriteID: dd60aefd9236d12e0800000000000000
+      internalID: -2153456015311763747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrel_6
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 0
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 112cb122ee9396a60800000000000000
+      internalID: 7667723535512224273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrel_7
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaeec843b1f7844c0800000000000000
+      internalID: -4303049689130013014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrel_8
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21fbe19ce8d097560800000000000000
+      internalID: 7311890376923463442
       vertices: []
       indices: 
       edges: []
@@ -272,7 +338,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f47fdc31352588b4298fe6916532a68d
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -280,16 +346,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_0": 445078252
-      "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_1": -51040681
-      "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_2": -440740600
-      "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_3": 1305047537
-      "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_4": -1560012792
-      "\u041F\u041E\u041B \u0411\u0415\u0417 \u0418\u0413\u041E\u041B\u041E\u041A_5": -2096213875
+      barrel_0: -8568042794190644651
+      barrel_1: -1209127185579228243
+      barrel_2: -7921435704551551082
+      barrel_3: 8562160663626781718
+      barrel_4: -3316199573581197735
+      barrel_5: -2153456015311763747
+      barrel_6: 7667723535512224273
+      barrel_7: -4303049689130013014
+      barrel_8: 7311890376923463442
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
