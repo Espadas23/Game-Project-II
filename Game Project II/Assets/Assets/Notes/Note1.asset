@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteData
   noteID: 1
   noteTitle: Chapter 1
-  noteText: HELP
+  noteText: "\"I saw him in the dark. He was standing too close, and I couldn\u2019t
+    do anything. Now he\u2019s gone.\""
   noteImage: {fileID: 0}

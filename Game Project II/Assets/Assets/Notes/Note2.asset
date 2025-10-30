@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteData
   noteID: 2
   noteTitle: Chapter 2
-  noteText: 
+  noteText: "\"Noise, screams, darkness\u2026 I closed the door and walked away.
+    I shouldn\u2019t have done that.\""
   noteImage: {fileID: 0}
