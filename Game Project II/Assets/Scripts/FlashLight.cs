@@ -24,8 +24,8 @@ public class Flashlight : MonoBehaviour
 
     [Header("Sprite Orientation")]
     public bool spriteLooksUp = false;
-
-    [HideInInspector]
+    
+    [HideInInspector] //!!
     public bool hasActivatedOnce = false;
 
     [HideInInspector]
@@ -38,6 +38,8 @@ public class Flashlight : MonoBehaviour
         shrinkTimer = shrinkDelay;
         if (flashlight != null)
             flashlight.enabled = isOn;
+        
+        hasActivatedOnce = false; //!!!
     }
 
     void Update()
@@ -51,7 +53,8 @@ public class Flashlight : MonoBehaviour
                 if (flashlight != null)
                     flashlight.enabled = isOn;
 
-                if (isOn) hasActivatedOnce = true;
+                if (isOn)
+                    hasActivatedOnce = true;//!!!
 
                 if (SoundManager.Instance != null)
                     SoundManager.Instance.PlayFlashlightToggle();
@@ -65,7 +68,7 @@ public class Flashlight : MonoBehaviour
             flashlight.intensity = Mathf.Lerp(flashlight.intensity, targetIntensity, intensitySpeed * Time.deltaTime);
         }
 
-        // --- Поворот к курсору ---
+        /* --- Поворот к курсору ---
         Vector3 mousePos = Mouse.current.position.ReadValue();
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
         mousePos.z = 0f;
@@ -77,7 +80,7 @@ public class Flashlight : MonoBehaviour
             targetAngle -= 90f;
 
         float angle = Mathf.LerpAngle(transform.eulerAngles.z, targetAngle, rotationSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);*/
 
         // --- Таймер сужения радиуса ---
         if (isOn && flashlight != null && !isBurnedOut)
@@ -117,7 +120,7 @@ public class Flashlight : MonoBehaviour
 
             isOn = true;
             flashlight.enabled = true;
-            hasActivatedOnce = true;
+            hasActivatedOnce = true;//!!!
         }
     }
 }

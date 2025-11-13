@@ -1,120 +1,3 @@
-/*using UnityEngine;
-using UnityEngine.InputSystem;
-
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
-public class PlayerController : MonoBehaviour
-{
-    [Header("Movement Settings")]
-    public float moveSpeed = 5f;           // скорость бега
-    public float jumpForce = 12f;          // сила прыжка
-
-    [Header("Ground Check")]
-    public Transform groundCheck;          // пустой объект чуть под ногами
-    public float groundCheckRadius = 0.12f;
-    public LayerMask groundLayer;
-
-    [Header("Jump Helpers")]
-    public float coyoteTime = 0.12f;       // время после отрыва от земли
-    public float jumpBufferTime = 0.12f;   // буфер нажатия перед касанием земли
-
-    [Header("Animation")]
-    public Animator animator;
-
-    // внутренние
-    private Rigidbody2D rb;
-    private float moveInput;
-    private bool isGrounded;
-    private float coyoteTimer;
-    private float jumpBufferTimer;
-    private Vector3 initialScale;
-
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        if (animator == null) animator = GetComponent<Animator>();
-        initialScale = transform.localScale;
-
-        rb.freezeRotation = true; // предотвращаем падение на бок
-    }
-
-    void Update()
-    {
-        // --- Чтение ввода
-        moveInput = 0f;
-        if (Keyboard.current != null)
-        {
-            if (Keyboard.current.aKey.isPressed) moveInput -= 1f;
-            if (Keyboard.current.dKey.isPressed) moveInput += 1f;
-
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-                jumpBufferTimer = jumpBufferTime;
-        }
-        else
-        {
-            moveInput = Input.GetAxisRaw("Horizontal");
-            if (Input.GetKeyDown(KeyCode.Space)) jumpBufferTimer = jumpBufferTime;
-        }
-
-        // --- Ground Check
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-
-        if (isGrounded) coyoteTimer = coyoteTime;
-        else coyoteTimer -= Time.deltaTime;
-
-        jumpBufferTimer -= Time.deltaTime;
-
-        // --- Прыжок
-        if (jumpBufferTimer > 0f && coyoteTimer > 0f)
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-
-            // 🎵 звук прыжка
-            if (SoundManager.Instance != null)
-                SoundManager.Instance.PlayJump();
-
-            jumpBufferTimer = 0f;
-            coyoteTimer = 0f;
-        }
-
-        // --- Флип персонажа
-        if (moveInput > 0.01f) transform.localScale = new Vector3(Mathf.Abs(initialScale.x), initialScale.y, initialScale.z);
-        else if (moveInput < -0.01f) transform.localScale = new Vector3(-Mathf.Abs(initialScale.x), initialScale.y, initialScale.z);
-
-        // --- Анимации
-        animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x)); 
-        animator.SetBool("isGrounded", isGrounded);
-        animator.SetFloat("yVelocity", rb.linearVelocity.y);
-
-        // 🎵 шаги: играть только когда идем по земле
-        if (Mathf.Abs(moveInput) > 0.01f && isGrounded)
-        {
-            if (SoundManager.Instance != null)
-                SoundManager.Instance.PlayFootsteps();
-        }
-        else
-        {
-            if (SoundManager.Instance != null)
-                SoundManager.Instance.StopFootsteps();
-        }
-    }
-
-    void FixedUpdate()
-    {
-        // движение
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        if (groundCheck != null)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        }
-    }
-}*/
-
 
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -132,100 +15,99 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius = 0.12f;
     public LayerMask groundLayer;
 
-    [Header("Jump Helpers")]
-    public float coyoteTime = 0.12f;
-    public float jumpBufferTime = 0.12f;
-
     [Header("Animation")]
     public Animator animator;
 
     [Header("Flashlight Reference")]
-    public Flashlight flashlight; // сюда перетащить объект фонарика
+    public Flashlight flashlight; // ссылка на фонарик
 
-    // внутренние
     private Rigidbody2D rb;
     private float moveInput;
     private bool isGrounded;
-    private float coyoteTimer;
-    private float jumpBufferTimer;
     private Vector3 initialScale;
+    public ArmController armController;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         if (animator == null) animator = GetComponent<Animator>();
         initialScale = transform.localScale;
-
         rb.freezeRotation = true;
     }
 
     void Update()
     {
-        // --- Чтение ввода
+        // --- Управление
         moveInput = 0f;
+
         if (Keyboard.current != null)
         {
             if (Keyboard.current.aKey.isPressed) moveInput -= 1f;
             if (Keyboard.current.dKey.isPressed) moveInput += 1f;
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-                jumpBufferTimer = jumpBufferTime;
+
+            if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
+            {
+                Jump();
+            }
         }
         else
         {
             moveInput = Input.GetAxisRaw("Horizontal");
-            if (Input.GetKeyDown(KeyCode.Space)) jumpBufferTimer = jumpBufferTime;
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            {
+                Jump();
+            }
         }
-
-        // --- Блокировка движения до включения фонарика
+        
+        // Блокировка движения
         if (flashlight != null && !flashlight.hasActivatedOnce)
             moveInput = 0f;
 
-        // --- Ground Check
+        // --- Проверка земли
+        bool wasGrounded = isGrounded;
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-
-        if (isGrounded) coyoteTimer = coyoteTime;
-        else coyoteTimer -= Time.deltaTime;
-
-        jumpBufferTimer -= Time.deltaTime;
-
-        // --- Прыжок
-        if (jumpBufferTimer > 0f && coyoteTimer > 0f)
+        
+        if (isGrounded && !wasGrounded)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            jumpBufferTimer = 0f;
-            coyoteTimer = 0f;
-
-            // 🎵 звук прыжка
-            if (SoundManager.Instance != null)
-                SoundManager.Instance.PlayJump();
+            animator.ResetTrigger("JumpStart");
         }
+        
+        // --- Поворот персонажа
+        if (moveInput > 0.01f)
+            transform.localScale = new Vector3(Mathf.Abs(initialScale.x), initialScale.y, initialScale.z);
+        else if (moveInput < -0.01f)
+            transform.localScale = new Vector3(-Mathf.Abs(initialScale.x), initialScale.y, initialScale.z);
 
-        // --- Флип персонажа
-        if (moveInput > 0.01f) transform.localScale = new Vector3(Mathf.Abs(initialScale.x), initialScale.y, initialScale.z);
-        else if (moveInput < -0.01f) transform.localScale = new Vector3(-Mathf.Abs(initialScale.x), initialScale.y, initialScale.z);
-
-        // --- Анимации
-        animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
-        animator.SetBool("isGrounded", isGrounded);
-        animator.SetFloat("yVelocity", rb.linearVelocity.y);
-
-        // 🎵 шаги: играть только когда идем по земле и разрешено движение
+        // --- Звуки шагов
         if (Mathf.Abs(moveInput) > 0.01f && isGrounded && (flashlight == null || flashlight.hasActivatedOnce))
         {
-            if (SoundManager.Instance != null)
-                SoundManager.Instance.PlayFootsteps();
+            SoundManager.Instance?.PlayFootsteps();
         }
         else
         {
-            if (SoundManager.Instance != null)
-                SoundManager.Instance.StopFootsteps();
+            SoundManager.Instance?.StopFootsteps();
         }
+        
+        ArmControllerLogic();
+
+        // --- Параметры для аниматора
+        animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+        animator.SetBool("isGrounded", isGrounded);
+        animator.SetFloat("yVelocity", rb.linearVelocity.y);
+        
     }
 
     void FixedUpdate()
     {
-        // движение
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+    }
+
+    void Jump()
+    {
+        animator.SetTrigger("JumpStart");
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+
+        SoundManager.Instance?.PlayJump();
     }
 
     void OnDrawGizmosSelected()
@@ -236,6 +118,19 @@ public class PlayerController : MonoBehaviour
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
     }
+
+    void ArmControllerLogic()
+    {
+        if (armController == null)
+            armController = GetComponentInChildren<ArmController>(true);
+
+        if (armController == null)
+            return;
+
+        // Передаём направление (true = вправо, false = влево)
+        armController.isFacingRight = transform.localScale.x > 0f;
+    }
 }
+
 
 
