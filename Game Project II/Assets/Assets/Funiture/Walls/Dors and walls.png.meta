@@ -1,0 +1,2028 @@
+fileFormatVersion: 2
+guid: e1ab90f6dfdae9d4f90a3e8aa0f6f9ec
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -850936609136548044
+    second: Dors and walls_0
+  - first:
+      213: -6290747135010066294
+    second: Dors and walls_1
+  - first:
+      213: -8983659995804959875
+    second: Dors and walls_2
+  - first:
+      213: 8151425174284701968
+    second: Dors and walls_3
+  - first:
+      213: -9043160994315355352
+    second: Dors and walls_4
+  - first:
+      213: -2174629289233846830
+    second: Dors and walls_5
+  - first:
+      213: -3378344203111679332
+    second: Dors and walls_6
+  - first:
+      213: 9166967344113688813
+    second: Dors and walls_7
+  - first:
+      213: 26416207483254043
+    second: Dors and walls_8
+  - first:
+      213: 5520607423149792256
+    second: Dors and walls_9
+  - first:
+      213: -2232447955934506018
+    second: Dors and walls_10
+  - first:
+      213: 8189484333287228022
+    second: Dors and walls_11
+  - first:
+      213: 49790066308244080
+    second: Dors and walls_12
+  - first:
+      213: 8724915431467969543
+    second: Dors and walls_13
+  - first:
+      213: -61881134926462392
+    second: Dors and walls_14
+  - first:
+      213: 7615122893247735214
+    second: Dors and walls_15
+  - first:
+      213: 7644483512376791303
+    second: Dors and walls_16
+  - first:
+      213: 2486154426870710898
+    second: Dors and walls_17
+  - first:
+      213: -858827897817148239
+    second: Dors and walls_18
+  - first:
+      213: 6285443758578478386
+    second: Dors and walls_19
+  - first:
+      213: -8443982722850538373
+    second: Dors and walls_20
+  - first:
+      213: -4168284392249936834
+    second: Dors and walls_21
+  - first:
+      213: -3049917281899250169
+    second: Dors and walls_22
+  - first:
+      213: -1085430891992188010
+    second: Dors and walls_23
+  - first:
+      213: 8417986893060369949
+    second: Dors and walls_24
+  - first:
+      213: -1926588503466962672
+    second: Dors and walls_25
+  - first:
+      213: -4361475164923455420
+    second: Dors and walls_26
+  - first:
+      213: 875859511467618665
+    second: Dors and walls_27
+  - first:
+      213: -4312927887813620427
+    second: Dors and walls_28
+  - first:
+      213: -175425537040851765
+    second: Dors and walls_29
+  - first:
+      213: 7468702641745702965
+    second: Dors and walls_30
+  - first:
+      213: -1242876889170083273
+    second: Dors and walls_31
+  - first:
+      213: -7019484180567500120
+    second: Dors and walls_32
+  - first:
+      213: 3816275624418443037
+    second: Dors and walls_33
+  - first:
+      213: -7370096983742077994
+    second: Dors and walls_34
+  - first:
+      213: 4458574974574781344
+    second: Dors and walls_35
+  - first:
+      213: -6228632210245788655
+    second: Dors and walls_36
+  - first:
+      213: -4075620959481108592
+    second: Dors and walls_37
+  - first:
+      213: 6470046942433649906
+    second: Dors and walls_38
+  - first:
+      213: 100373969222077132
+    second: Dors and walls_39
+  - first:
+      213: -8451622352979461336
+    second: Dors and walls_40
+  - first:
+      213: -4041322277052164244
+    second: Dors and walls_41
+  - first:
+      213: -7609045809215504605
+    second: Dors and walls_42
+  - first:
+      213: -2953891524576027923
+    second: Dors and walls_43
+  - first:
+      213: 8756335206241070792
+    second: Dors and walls_44
+  - first:
+      213: 1082052194879479342
+    second: Dors and walls_45
+  - first:
+      213: -4629459571562396972
+    second: Dors and walls_46
+  - first:
+      213: -591235267404841990
+    second: Dors and walls_47
+  - first:
+      213: -2053594631485863436
+    second: Dors and walls_48
+  - first:
+      213: -5338134685917111173
+    second: Dors and walls_49
+  - first:
+      213: 2048898316076905824
+    second: Dors and walls_50
+  - first:
+      213: -8459439782480902123
+    second: Dors and walls_51
+  - first:
+      213: 813462062158182971
+    second: Dors and walls_52
+  - first:
+      213: 7901550551007200254
+    second: Dors and walls_53
+  - first:
+      213: 1641741139908495727
+    second: Dors and walls_54
+  - first:
+      213: -6018981123536346609
+    second: Dors and walls_55
+  - first:
+      213: -3263709238291807165
+    second: Dors and walls_56
+  - first:
+      213: 4790901229183227996
+    second: Dors and walls_57
+  - first:
+      213: -7054459241010300347
+    second: Dors and walls_58
+  - first:
+      213: -1770829076936480863
+    second: Dors and walls_59
+  - first:
+      213: 2476717147347809634
+    second: Dors and walls_60
+  - first:
+      213: 4126340620320318283
+    second: Dors and walls_61
+  - first:
+      213: 948088779473234345
+    second: Dors and walls_62
+  - first:
+      213: -9219762484817542680
+    second: Dors and walls_63
+  - first:
+      213: -6375509319561081342
+    second: Dors and walls_64
+  - first:
+      213: -7371352092879382127
+    second: Dors and walls_65
+  - first:
+      213: -5026969930674127331
+    second: Dors and walls_66
+  - first:
+      213: -2199444354080068988
+    second: Dors and walls_67
+  - first:
+      213: -5998535947044493503
+    second: Dors and walls_68
+  - first:
+      213: 8376852169637955211
+    second: Dors and walls_69
+  - first:
+      213: 4168108669075529730
+    second: Dors and walls_70
+  - first:
+      213: 1299815079720317745
+    second: Dors and walls_71
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dors and walls_0
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 80
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4376a0699add034f0800000000000000
+      internalID: -850936609136548044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 57
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a803bed7fc6c2b8a0800000000000000
+      internalID: -6290747135010066294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_2
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 80
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7b782fc4d0a35380800000000000000
+      internalID: -8983659995804959875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_3
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 57
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0119a66020eaf1170800000000000000
+      internalID: 8151425174284701968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_4
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 80
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82b3a270dfc308280800000000000000
+      internalID: -9043160994315355352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_5
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 57
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dd6e01ee2a22d1e0800000000000000
+      internalID: -2174629289233846830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_6
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 79
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9a3784b8d5bd11d0800000000000000
+      internalID: -3378344203111679332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_7
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 79
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de0a0851b3c973f70800000000000000
+      internalID: 9166967344113688813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_8
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 79
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b153a579669dd5000800000000000000
+      internalID: 26416207483254043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_9
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 81
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c5a31b3332d9c40800000000000000
+      internalID: 5520607423149792256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_10
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 58
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed31afe7960c401e0800000000000000
+      internalID: -2232447955934506018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_11
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 81
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67246338c94e6a170800000000000000
+      internalID: 8189484333287228022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_12
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 58
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07265af2dc3e0b000800000000000000
+      internalID: 49790066308244080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_13
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 81
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70ce8fbbb50251970800000000000000
+      internalID: 8724915431467969543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_14
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 58
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84209668f67242ff0800000000000000
+      internalID: -61881134926462392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_15
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 80
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea5e9fcbce95ea960800000000000000
+      internalID: 7615122893247735214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_16
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 57
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7019c869049a61a60800000000000000
+      internalID: 7644483512376791303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_17
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 80
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 272c46e6748908220800000000000000
+      internalID: 2486154426870710898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_18
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 57
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b4d963c394d414f0800000000000000
+      internalID: -858827897817148239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_19
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 80
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23d24c5fbc16a3750800000000000000
+      internalID: 6285443758578478386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_20
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 57
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7c35f2a372f0da80800000000000000
+      internalID: -8443982722850538373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_21
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 79
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3433250e674726c0800000000000000
+      internalID: -4168284392249936834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_22
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 79
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70ef11a24648ca5d0800000000000000
+      internalID: -3049917281899250169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_23
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 79
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69bf196ca56cfe0f0800000000000000
+      internalID: -1085430891992188010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_24
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 78
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1ee1c49a72b2d470800000000000000
+      internalID: 8417986893060369949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_25
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 78
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 011108ea6f16345e0800000000000000
+      internalID: -1926588503466962672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_26
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 78
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4489c02127de873c0800000000000000
+      internalID: -4361475164923455420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_27
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 78
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 961bc2ec59da72c00800000000000000
+      internalID: 875859511467618665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_28
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 78
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53d4ef8dfe66524c0800000000000000
+      internalID: -4312927887813620427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_29
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 78
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bccd52c4763c09df0800000000000000
+      internalID: -175425537040851765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_30
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 75
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53036465b7926a760800000000000000
+      internalID: 7468702641745702965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_31
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 75
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7328979ed0a60cee0800000000000000
+      internalID: -1242876889170083273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_32
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 75
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aadcce1458c59e90800000000000000
+      internalID: -7019484180567500120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_33
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 36
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1f717ef57226f430800000000000000
+      internalID: 3816275624418443037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_34
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 36
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d320eb77d728b990800000000000000
+      internalID: -7370096983742077994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_35
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 36
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a3e9fb115a00ed30800000000000000
+      internalID: 4458574974574781344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_36
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 56
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c5eb761047f89a0800000000000000
+      internalID: -6228632210245788655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_37
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 33
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 097edf6b45c7077c0800000000000000
+      internalID: -4075620959481108592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_38
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 56
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f42cd31a693ac950800000000000000
+      internalID: 6470046942433649906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_39
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 33
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cca8d2cd799946100800000000000000
+      internalID: 100373969222077132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_40
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 56
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82b78e2af3ec5ba80800000000000000
+      internalID: -8451622352979461336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_41
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 33
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c67de650dc65ae7c0800000000000000
+      internalID: -4041322277052164244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_42
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 35
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32ff806a62d376690800000000000000
+      internalID: -7609045809215504605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_43
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 35
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deadb9c0f4ba107d0800000000000000
+      internalID: -2953891524576027923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_44
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 35
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ceee3e1a70c48970800000000000000
+      internalID: 8756335206241070792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_45
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 34
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2e19300db8340f00800000000000000
+      internalID: 1082052194879479342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_46
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 34
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d2cdfe2c0bd0cfb0800000000000000
+      internalID: -4629459571562396972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_47
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 34
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afbb6a328a28bc7f0800000000000000
+      internalID: -591235267404841990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_48
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 56
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f9c2a5209a2083e0800000000000000
+      internalID: -2053594631485863436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_49
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 33
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7c18ba29c22be5b0800000000000000
+      internalID: -5338134685917111173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_50
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 56
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 065f8a6b9262f6c10800000000000000
+      internalID: 2048898316076905824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_51
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 33
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5180b6e76580a9a80800000000000000
+      internalID: -8459439782480902123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_52
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 56
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3af1358f6ff94b00800000000000000
+      internalID: 813462062158182971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_53
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 33
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef38397ac52f7ad60800000000000000
+      internalID: 7901550551007200254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_54
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 55
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6904615ed2a8c610800000000000000
+      internalID: 1641741139908495727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_55
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 32
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f02a5ddde88487ca0800000000000000
+      internalID: -6018981123536346609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_56
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 55
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 344c4795db9f4b2d0800000000000000
+      internalID: -3263709238291807165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_57
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 32
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58d27fd843bc7240800000000000000
+      internalID: 4790901229183227996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_58
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 55
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54afb1942b6891e90800000000000000
+      internalID: -7054459241010300347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_59
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 32
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a7a4473650cc67e0800000000000000
+      internalID: -1770829076936480863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_60
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 55
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 265f8c09f111f5220800000000000000
+      internalID: 2476717147347809634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_61
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 32
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4325709ee4b34930800000000000000
+      internalID: 4126340620320318283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_62
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 55
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a92904c8b9482d00800000000000000
+      internalID: 948088779473234345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_63
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 32
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e14af25ed2dc0080800000000000000
+      internalID: -9219762484817542680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_64
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 55
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20e8e518d04a587a0800000000000000
+      internalID: -6375509319561081342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_65
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 32
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 199979d9352b3b990800000000000000
+      internalID: -7371352092879382127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_66
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 52
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1e39996b7d9c3ab0800000000000000
+      internalID: -5026969930674127331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_67
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 52
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48aa1db53010a71e0800000000000000
+      internalID: -2199444354080068988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_68
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 52
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1476008765be0cca0800000000000000
+      internalID: -5998535947044493503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_69
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 29
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b860b337aae804470800000000000000
+      internalID: 8376852169637955211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_70
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 29
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 200297d30c818d930800000000000000
+      internalID: 4168108669075529730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dors and walls_71
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 29
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 133fc64adeed90210800000000000000
+      internalID: 1299815079720317745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 46c6da0abeae6e947a0b61d088b28798
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Dors and walls_0: -850936609136548044
+      Dors and walls_1: -6290747135010066294
+      Dors and walls_10: -2232447955934506018
+      Dors and walls_11: 8189484333287228022
+      Dors and walls_12: 49790066308244080
+      Dors and walls_13: 8724915431467969543
+      Dors and walls_14: -61881134926462392
+      Dors and walls_15: 7615122893247735214
+      Dors and walls_16: 7644483512376791303
+      Dors and walls_17: 2486154426870710898
+      Dors and walls_18: -858827897817148239
+      Dors and walls_19: 6285443758578478386
+      Dors and walls_2: -8983659995804959875
+      Dors and walls_20: -8443982722850538373
+      Dors and walls_21: -4168284392249936834
+      Dors and walls_22: -3049917281899250169
+      Dors and walls_23: -1085430891992188010
+      Dors and walls_24: 8417986893060369949
+      Dors and walls_25: -1926588503466962672
+      Dors and walls_26: -4361475164923455420
+      Dors and walls_27: 875859511467618665
+      Dors and walls_28: -4312927887813620427
+      Dors and walls_29: -175425537040851765
+      Dors and walls_3: 8151425174284701968
+      Dors and walls_30: 7468702641745702965
+      Dors and walls_31: -1242876889170083273
+      Dors and walls_32: -7019484180567500120
+      Dors and walls_33: 3816275624418443037
+      Dors and walls_34: -7370096983742077994
+      Dors and walls_35: 4458574974574781344
+      Dors and walls_36: -6228632210245788655
+      Dors and walls_37: -4075620959481108592
+      Dors and walls_38: 6470046942433649906
+      Dors and walls_39: 100373969222077132
+      Dors and walls_4: -9043160994315355352
+      Dors and walls_40: -8451622352979461336
+      Dors and walls_41: -4041322277052164244
+      Dors and walls_42: -7609045809215504605
+      Dors and walls_43: -2953891524576027923
+      Dors and walls_44: 8756335206241070792
+      Dors and walls_45: 1082052194879479342
+      Dors and walls_46: -4629459571562396972
+      Dors and walls_47: -591235267404841990
+      Dors and walls_48: -2053594631485863436
+      Dors and walls_49: -5338134685917111173
+      Dors and walls_5: -2174629289233846830
+      Dors and walls_50: 2048898316076905824
+      Dors and walls_51: -8459439782480902123
+      Dors and walls_52: 813462062158182971
+      Dors and walls_53: 7901550551007200254
+      Dors and walls_54: 1641741139908495727
+      Dors and walls_55: -6018981123536346609
+      Dors and walls_56: -3263709238291807165
+      Dors and walls_57: 4790901229183227996
+      Dors and walls_58: -7054459241010300347
+      Dors and walls_59: -1770829076936480863
+      Dors and walls_6: -3378344203111679332
+      Dors and walls_60: 2476717147347809634
+      Dors and walls_61: 4126340620320318283
+      Dors and walls_62: 948088779473234345
+      Dors and walls_63: -9219762484817542680
+      Dors and walls_64: -6375509319561081342
+      Dors and walls_65: -7371352092879382127
+      Dors and walls_66: -5026969930674127331
+      Dors and walls_67: -2199444354080068988
+      Dors and walls_68: -5998535947044493503
+      Dors and walls_69: 8376852169637955211
+      Dors and walls_7: 9166967344113688813
+      Dors and walls_70: 4168108669075529730
+      Dors and walls_71: 1299815079720317745
+      Dors and walls_8: 26416207483254043
+      Dors and walls_9: 5520607423149792256
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
