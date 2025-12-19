@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Glow
   - Note
-  - 
+  - Fog
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 2284064319
+    locked: 0
+  - name: Fog
+    uniqueID: 2886269629
     locked: 0
   m_RenderingLayers:
   - Default
