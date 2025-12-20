@@ -1,80 +1,82 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
+
 
 [RequireComponent(typeof(CanvasGroup))]
 public class MapController : MonoBehaviour
 {
-    [Header("UI Elements")]
-    public CanvasGroup mapGroup;      // CanvasGroup карты
-    public RawImage mapImage;         // Изображение карты
-    public RectTransform playerMarker;
+    [Header("UI")]
+    public CanvasGroup mapGroup;
+    public RawImage mapImage;
+    public RectTransform mapRect;
 
-    [Header("References")]
-    public Transform player;
+    [Header("World")]
+    public Transform player;          // Игрок, вокруг которого раскрывается туман
+    public Tilemap tilemap;           // Тайлмап карты для границ
+
+    [Header("Settings")]
     public float mapFadeSpeed = 5f;
-    public float markerMoveSpeed = 10f;
 
     [Header("Fog Settings")]
-    public int fogTextureSize = 512;
-    public float revealRadius = 5f;
+    public int fogTextureWidth = 739; // Совпадает с шириной карты
+    public int fogTextureHeight = 556; // Совпадает с высотой карты
+    public float revealRadius = 5f;   // В единицах мира
     public string shaderFogTexProp = "_FogTex";
     public string shaderAlphaProp = "_Alpha";
 
-    private bool mapVisible = false;
-    private float targetAlpha = 0f;
+    private bool mapVisible;
+    private float targetAlpha;
     private Material mapMaterial;
     private Texture2D fogTexture;
     private Color32[] fogPixels;
-    private float worldToTex;
+
+    private Bounds mapBounds;
 
     void Awake()
     {
-        // гарантируем наличие CanvasGroup
         if (mapGroup == null)
             mapGroup = GetComponent<CanvasGroup>();
 
-        // карта невидима и неактивна для кликов
         mapGroup.alpha = 0f;
         mapGroup.interactable = false;
         mapGroup.blocksRaycasts = false;
 
-        if (playerMarker != null)
-            playerMarker.gameObject.SetActive(false);
+        if (player == null)
+            Debug.LogWarning("Player Transform is not assigned!");
+        if (tilemap == null)
+            Debug.LogWarning("Tilemap is not assigned!");
     }
 
     void Start()
     {
-        if (mapImage != null)
-        {
-            mapMaterial = mapImage.material;
+        if (mapImage == null || player == null || tilemap == null) return;
 
-            fogTexture = new Texture2D(fogTextureSize, fogTextureSize, TextureFormat.RGBA32, false);
-            fogTexture.wrapMode = TextureWrapMode.Clamp;
+        mapMaterial = mapImage.material;
 
-            fogPixels = new Color32[fogTextureSize * fogTextureSize];
-            for (int i = 0; i < fogPixels.Length; i++)
-                fogPixels[i] = Color.white;
+        fogTexture = new Texture2D(fogTextureWidth, fogTextureHeight, TextureFormat.RGBA32, false);
+        fogTexture.wrapMode = TextureWrapMode.Clamp;
+        fogTexture.filterMode = FilterMode.Point;
 
-            fogTexture.SetPixels32(fogPixels);
-            fogTexture.Apply();
+        fogPixels = new Color32[fogTextureWidth * fogTextureHeight];
+        ClearFog(); // старт с черного
 
-            mapMaterial.SetTexture(shaderFogTexProp, fogTexture);
-            SetMapAlpha(0f);
+        mapMaterial.SetTexture(shaderFogTexProp, fogTexture);
+        mapMaterial.SetFloat(shaderAlphaProp, 0f);
 
-            worldToTex = fogTextureSize / (mapImage.rectTransform.rect.width);
-        }
+        mapBounds = tilemap.localBounds; // используем тайлмап для границ
     }
 
     void Update()
     {
         HandleMapToggle();
         UpdateMapAlpha();
-        UpdatePlayerMarker();
         UpdateFogTexture();
     }
 
-    private void HandleMapToggle()
+    void HandleMapToggle()
     {
         if (Keyboard.current != null && Keyboard.current.mKey.wasPressedThisFrame)
         {
@@ -84,57 +86,54 @@ public class MapController : MonoBehaviour
             mapGroup.interactable = mapVisible;
             mapGroup.blocksRaycasts = mapVisible;
 
-            if (playerMarker != null)
-                playerMarker.gameObject.SetActive(mapVisible);
+            if (mapVisible)
+                ClearFog(); // очищаем при открытии карты
         }
     }
 
-    private void UpdateMapAlpha()
+    void UpdateMapAlpha()
     {
-        if (mapGroup != null)
-            mapGroup.alpha = Mathf.MoveTowards(mapGroup.alpha, targetAlpha, Time.deltaTime * mapFadeSpeed);
+        mapGroup.alpha = Mathf.MoveTowards(mapGroup.alpha, targetAlpha, Time.deltaTime * mapFadeSpeed);
 
         if (mapMaterial != null)
         {
             float currentAlpha = mapMaterial.GetFloat(shaderAlphaProp);
-            float newAlpha = Mathf.MoveTowards(currentAlpha, targetAlpha, Time.deltaTime * mapFadeSpeed);
-            mapMaterial.SetFloat(shaderAlphaProp, newAlpha);
+            mapMaterial.SetFloat(shaderAlphaProp,
+                Mathf.MoveTowards(currentAlpha, targetAlpha, Time.deltaTime * mapFadeSpeed));
         }
     }
 
-    private void UpdatePlayerMarker()
+    void UpdateFogTexture()
     {
-        if (playerMarker != null && player != null && mapVisible)
-        {
-            Vector3 worldPos = player.position;
-            Vector3 markerPos = new Vector3(worldPos.x, worldPos.y, 0f);
-            playerMarker.localPosition = Vector3.Lerp(playerMarker.localPosition, markerPos, Time.deltaTime * markerMoveSpeed);
-        }
-    }
+        if (!mapVisible || fogTexture == null || player == null) return;
 
-    private void UpdateFogTexture()
-    {
-        if (fogTexture == null || player == null || !mapVisible) return;
+        // Преобразуем мировые координаты игрока в координаты текстуры
+        float u = Mathf.InverseLerp(mapBounds.min.x, mapBounds.max.x, player.position.x);
+        float v = Mathf.InverseLerp(mapBounds.min.y, mapBounds.max.y, player.position.y);
 
-        int px = Mathf.RoundToInt(player.position.x * worldToTex + fogTextureSize / 2f);
-        int py = Mathf.RoundToInt(player.position.y * worldToTex + fogTextureSize / 2f);
-        int radius = Mathf.RoundToInt(revealRadius * worldToTex);
+        int px = Mathf.RoundToInt(u * fogTextureWidth);
+        int py = Mathf.RoundToInt(v * fogTextureHeight);
 
-        for (int y = -radius; y <= radius; y++)
+        // Рассчитываем radius в пикселях текстуры
+        float worldWidth = mapBounds.size.x;
+        float worldHeight = mapBounds.size.y;
+
+        int radiusX = Mathf.RoundToInt((revealRadius / worldWidth) * fogTextureWidth);
+        int radiusY = Mathf.RoundToInt((revealRadius / worldHeight) * fogTextureHeight);
+
+        for (int y = -radiusY; y <= radiusY; y++)
         {
             int ty = py + y;
-            if (ty < 0 || ty >= fogTextureSize) continue;
+            if (ty < 0 || ty >= fogTextureHeight) continue;
 
-            for (int x = -radius; x <= radius; x++)
+            for (int x = -radiusX; x <= radiusX; x++)
             {
                 int tx = px + x;
-                if (tx < 0 || tx >= fogTextureSize) continue;
+                if (tx < 0 || tx >= fogTextureWidth) continue;
 
-                if (x * x + y * y <= radius * radius)
-                {
-                    int index = ty * fogTextureSize + tx;
-                    fogPixels[index] = Color.clear;
-                }
+                // Эллиптическая форма (подгонка под прямоугольную карту)
+                if ((float)x / radiusX * (float)x / radiusX + (float)y / radiusY * (float)y / radiusY <= 1f)
+                    fogPixels[ty * fogTextureWidth + tx] = Color.white;
             }
         }
 
@@ -142,165 +141,20 @@ public class MapController : MonoBehaviour
         fogTexture.Apply();
     }
 
-    private void SetMapAlpha(float alpha)
+    void ClearFog()
     {
-        if (mapMaterial != null)
-            mapMaterial.SetFloat(shaderAlphaProp, alpha);
+        for (int i = 0; i < fogPixels.Length; i++)
+            fogPixels[i] = Color.black;
+
+        fogTexture.SetPixels32(fogPixels);
+        fogTexture.Apply();
     }
 }
 
 
-/*using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CanvasGroup))]
-public class MapController : MonoBehaviour
-{
-    [Header("UI Elements")]
-    public CanvasGroup mapGroup;      // CanvasGroup карты (контролирует прозрачность всей карты)
-    public RawImage mapImage;         // Изображение карты с Fog
-    public RectTransform playerMarker;
 
-    [Header("References")]
-    public Transform player;
-    public float mapFadeSpeed = 5f;
-    public float markerMoveSpeed = 10f;
 
-    [Header("Fog Settings")]
-    public int fogTextureSize = 512;
-    public float revealRadius = 5f;
-
-    private bool mapVisible = false;
-    private float targetAlpha = 0f;
-    private Texture2D fogTexture;
-    private Color32[] fogPixels;
-    private float worldToTex;
-
-    void Awake()
-    {
-        if (mapGroup == null)
-            mapGroup = GetComponent<CanvasGroup>();
-
-        // изначально карта полностью скрыта
-        mapGroup.alpha = 0f;
-        mapGroup.interactable = false;
-        mapGroup.blocksRaycasts = false;
-
-        // RawImage тоже прозрачный
-        if (mapImage != null)
-        {
-            Color c = mapImage.color;
-            c.a = 0f;
-            mapImage.color = c;
-            mapImage.gameObject.SetActive(false); // полностью скрываем до открытия
-        }
-
-        if (playerMarker != null)
-            playerMarker.gameObject.SetActive(false);
-    }
-
-    void Start()
-    {
-        if (mapImage != null)
-        {
-            // создаём текстуру тумана
-            fogTexture = new Texture2D(fogTextureSize, fogTextureSize, TextureFormat.RGBA32, false);
-            fogTexture.wrapMode = TextureWrapMode.Clamp;
-
-            fogPixels = new Color32[fogTextureSize * fogTextureSize];
-            for (int i = 0; i < fogPixels.Length; i++)
-                fogPixels[i] = Color.white;
-
-            fogTexture.SetPixels32(fogPixels);
-            fogTexture.Apply();
-
-            mapImage.texture = fogTexture;
-
-            worldToTex = fogTextureSize / (mapImage.rectTransform.rect.width);
-        }
-    }
-
-    void Update()
-    {
-        HandleMapToggle();
-        UpdateMapAlpha();
-        UpdatePlayerMarker();
-        UpdateFogTexture();
-    }
-
-    private void HandleMapToggle()
-    {
-        if (Keyboard.current != null && Keyboard.current.mKey.wasPressedThisFrame)
-        {
-            mapVisible = !mapVisible;
-            targetAlpha = mapVisible ? 1f : 0f;
-
-            mapGroup.interactable = mapVisible;
-            mapGroup.blocksRaycasts = mapVisible;
-
-            // включаем RawImage только при открытии карты
-            if (mapImage != null)
-                mapImage.gameObject.SetActive(mapVisible);
-
-            if (playerMarker != null)
-                playerMarker.gameObject.SetActive(mapVisible);
-        }
-    }
-
-    private void UpdateMapAlpha()
-    {
-        if (mapGroup != null)
-            mapGroup.alpha = Mathf.MoveTowards(mapGroup.alpha, targetAlpha, Time.deltaTime * mapFadeSpeed);
-
-        if (mapImage != null)
-        {
-            Color c = mapImage.color;
-            c.a = Mathf.MoveTowards(c.a, targetAlpha, Time.deltaTime * mapFadeSpeed);
-            mapImage.color = c;
-        }
-    }
-
-    private void UpdatePlayerMarker()
-    {
-        if (playerMarker != null && player != null && mapVisible)
-        {
-            Vector3 worldPos = player.position;
-            Vector3 markerPos = new Vector3(worldPos.x, worldPos.y, 0f);
-            playerMarker.localPosition = Vector3.Lerp(playerMarker.localPosition, markerPos, Time.deltaTime * markerMoveSpeed);
-        }
-    }
-
-    private void UpdateFogTexture()
-    {
-        if (fogTexture == null || player == null || !mapVisible) return;
-
-        int px = Mathf.RoundToInt(player.position.x * worldToTex + fogTextureSize / 2f);
-        int py = Mathf.RoundToInt(player.position.y * worldToTex + fogTextureSize / 2f);
-        int radius = Mathf.RoundToInt(revealRadius * worldToTex);
-
-        for (int y = -radius; y <= radius; y++)
-        {
-            int ty = py + y;
-            if (ty < 0 || ty >= fogTextureSize) continue;
-
-            for (int x = -radius; x <= radius; x++)
-            {
-                int tx = px + x;
-                if (tx < 0 || tx >= fogTextureSize) continue;
-
-                if (x * x + y * y <= radius * radius)
-                {
-                    int index = ty * fogTextureSize + tx;
-                    fogPixels[index] = Color.clear;
-                }
-            }
-        }
-
-        fogTexture.SetPixels32(fogPixels);
-        fogTexture.Apply();
-    }
-}*/
 
 
 
