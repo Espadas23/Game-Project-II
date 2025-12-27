@@ -185,11 +185,19 @@ public class FlashlightHP : MonoBehaviour
     }
 
     // --- Кнопка Restart ---
+    //public void RestartGame()
+    //{
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //Time.timeScale = 1f;
+    //}
+    
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+
 
     // --- Кнопка Exit ---
     public void ExitGame()
