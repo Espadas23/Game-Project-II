@@ -47,5 +47,8 @@ TagManager:
   - name: Fog
     uniqueID: 2886269629
     locked: 0
+  - name: FACE
+    uniqueID: 3727648277
+    locked: 0
   m_RenderingLayers:
   - Default
