@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteData
   noteID: 6
   noteTitle: Chapter 6
-  noteText: 
+  noteText: "\"I held his things in my hands. They still smelled of cold. I can\u2019t
+    throw them away.\""
   noteImage: {fileID: 0}

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteData
   noteID: 3
   noteTitle: Chapter 3
-  noteText: HELP
+  noteText: "\"I keep thinking: if I hadn\u2019t been afraid, he would still be alive.
+    But fear was stronger than me.\""
   noteImage: {fileID: 0}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteData
   noteID: 10
   noteTitle: Chapter 10
-  noteText: 
+  noteText: '"I thought it would be easier. But the darkness never let me go."'
   noteImage: {fileID: 0}

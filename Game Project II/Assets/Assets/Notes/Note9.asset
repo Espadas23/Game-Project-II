@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteData
   noteID: 9
   noteTitle: Chapter 9
-  noteText: 
+  noteText: "\"He doesn\u2019t come to me in my dreams anymore. Because it wasn\u2019t
+    him.\""
   noteImage: {fileID: 0}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteData
   noteID: 11
   noteTitle: Chapter 11
-  noteText: 
+  noteText: '"It was emptiness. And I stepped into it myself."'
   noteImage: {fileID: 0}

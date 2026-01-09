@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteData
   noteID: 4
   noteTitle: Chapter 4
-  noteText: 
+  noteText: "\"It all happened so fast. One step \u2014 and he was gone. I wasn\u2019t
+    quick enough.\""
   noteImage: {fileID: 0}

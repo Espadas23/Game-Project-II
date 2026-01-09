@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteData
   noteID: 5
   noteTitle: Chapter 5
-  noteText: 
+  noteText: '"I hear his voice every night. He calls me by name, he blames me."'
   noteImage: {fileID: 0}

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteData
   noteID: 7
   noteTitle: Chapter 7
-  noteText: 
+  noteText: '"If I had gone in, if I had stepped forward, he would be here. But I
+    just stood there. I stood."'
   noteImage: {fileID: 0}

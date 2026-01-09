@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteData
   noteID: 12
   noteTitle: Chapter 12
-  noteText: 
+  noteText: "\"Maybe\u2026 there\u2019s a chance.\""
   noteImage: {fileID: 0}

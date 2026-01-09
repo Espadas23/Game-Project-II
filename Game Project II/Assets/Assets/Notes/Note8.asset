@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteData
   noteID: 8
   noteTitle: Chapter 8
-  noteText: 
+  noteText: "\"They think it was an accident. But I know the truth. I\u2019m the
+    one to blame.\""
   noteImage: {fileID: 0}
